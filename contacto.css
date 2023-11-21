@@ -54,7 +54,11 @@ nav a {
 }
 
 section#informacion {
-    margin: 20px;
+    margin-top: 50px;
+    text-align: center;
+    padding: 20px;
+
+
 }
 
 .whatsapp-button {
