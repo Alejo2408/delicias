@@ -31,7 +31,7 @@
         <a href="https://web.whatsapp.com/send/?phone=1531581450&app_absent=0" target="_blank" class="whatsapp-button">Abrir WhatsApp Web</a>
     </section>
 
-    <div id="comments-container">
+  <div id="comments-container">
         <!-- Aquí se mostrarán los comentarios -->
     </div>
 
@@ -83,6 +83,9 @@
             // Obtener los comentarios almacenados en GitHub Gists
             var gistData = (typeof gistData !== 'undefined') ? gistData : {};
 
+            // Obtener el token de acceso personal de GitHub
+            var githubToken = 'YOUR_GITHUB_TOKEN';
+
             // Obtener los comentarios actuales del archivo JSON
             var comments = gistData.files['comments.json'].content;
             var commentsObj = JSON.parse(comments);
@@ -93,14 +96,21 @@
             // Convertir el objeto de comentarios a formato JSON
             var updatedComments = JSON.stringify(commentsObj);
 
-            // Actualizar el contenido del archivo JSON en GitHub Gists
-            fetch(gistData.files['comments.json'].raw_url, {
-                method: 'PUT',
-                body: JSON.stringify({ files: { 'comments.json': { content: updatedComments } } }),
+            // Actualizar el contenido del archivo JSON en GitHub Gists utilizando la API de GitHub
+            fetch(`https://api.github.com/gists/${gistData.id}`, {
+                method: 'PATCH',
                 headers: {
+                    'Authorization': `Bearer ${githubToken}`,
+                    'Accept': 'application/vnd.github.v3+json',
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer YOUR_GITHUB_TOKEN'
-                }
+                },
+                body: JSON.stringify({
+                    files: {
+                        'comments.json': {
+                            content: updatedComments
+                        }
+                    }
+                })
             })
             .then(response => response.json())
             .then(data => {
