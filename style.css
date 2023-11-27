@@ -3,22 +3,35 @@ body {
     font-style: italic;
     margin: 0;
     padding: 0;
-    background-color: #f1f1f1;
-    text-align: center; /* Centro el texto en el cuerpo de la página */
+    background-color: rgba(255, 204, 225); /* Fondo rosa pastel */
+    text-align: center;
+}
+
+img {
+    border-radius: 10px; /* Bordes redondos para las imágenes */
+    max-width: 100%; /* Hacer que las imágenes sean responsivas */
 }
 
 header, nav, section, footer {
+    background-color: rgba(255, 204, 225);
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
     margin: 20px auto; /* Centrar los elementos en la página */
     padding: 20px;
     background-color: rgb(255, 204, 225); /* Fondo completamente transparente */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px; /* Limitar el ancho de los elementos para mejorar la legibilidad */
+    max-width: 800px auto; /* Limitar el ancho de los elementos para mejorar la legibilidad */
     text-align: center; /* Centro el texto dentro de los elementos */
+    
 }
-
 header h1 {
     color: #eb6df7;
+}
+nav {
+    background-color:  rgb(255, 118, 175);
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
 }
 
 nav ul {
@@ -34,11 +47,12 @@ nav li {
 
 nav a {
     text-decoration: none;
-    color: #080808;
+    color: #333;
+    font-weight: bold;
 }
 
 section {
-    text-align: left; /* Alinear el texto a la izquierda dentro de las secciones */
+    text-align: center; /* Alinear el texto a la izquierda dentro de las secciones */
 }
 
 section h2 {
