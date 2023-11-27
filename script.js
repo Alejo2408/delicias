@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function loadComments() {
     // Llamar al script de GitHub Gists para cargar los comentarios
-    // Asegúrate de reemplazar "Alejo2408" y "4d79e190762bb4b922f0c487e1531e0e.js" con tus propias credenciales de GitHub Gists.
+    // Asegúrate de reemplazar "Alejo2408" y "907a6b4f90af4dcf9adeaf642b16536a.js" con tus propias credenciales de GitHub Gists.
 }
 
 function addComment() {
