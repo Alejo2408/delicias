@@ -43,6 +43,33 @@
     <script src="https://gist.github.com/your_username/your_gist_id.js"></script>
     <script src="script.js"></script>
 
+    <script>
+        // Función para cargar y mostrar comentarios desde el Gist
+        function loadCommentsFromGist() {
+            // Obtener la variable `gistData` que contiene el contenido del Gist
+            var gistData = (typeof gistData !== 'undefined') ? gistData : {};
+
+            // Obtener los comentarios del archivo JSON
+            var comments = gistData.files['comments.json'].content;
+
+            // Convertir el contenido JSON a un objeto JavaScript
+            var commentsObj = JSON.parse(comments);
+
+            // Mostrar los comentarios en la página
+            var commentsContainer = document.getElementById("comments-container");
+            commentsContainer.innerHTML = "";
+            
+            for (var i = 0; i < commentsObj.length; i++) {
+                var commentDiv = document.createElement("div");
+                commentDiv.textContent = commentsObj[i];
+                commentsContainer.appendChild(commentDiv);
+            }
+        }
+
+        // Llamar a la función para cargar y mostrar comentarios al cargar la página
+        loadCommentsFromGist();
+    </script>
+
     <footer>
         <p>&copy; 2023 Pastelería Deliciosa. Todos los derechos reservados.</p>
     </footer>
